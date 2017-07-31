@@ -5,6 +5,8 @@
  */
 package org.bdlions.controller;
 
+import org.bdlions.db.HibernateUtil;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -12,10 +14,13 @@ import org.springframework.web.bind.annotation.RestController;
  *
  * @author alamgir
  */
+@CrossOrigin
 @RestController
+@RequestMapping("/testindex")
 public class ControllerIndex {
-    @RequestMapping("/")
+    @RequestMapping("/testhome")
     String home() {
+        HibernateUtil.getSession();
         return "ECard service.";
     }
 }
