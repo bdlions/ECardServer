@@ -1,5 +1,6 @@
 package org.bdlions.dto;
 
+import com.bdlions.dto.response.ClientResponse;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -7,6 +8,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Index;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 /**
  *
@@ -19,12 +21,11 @@ import javax.persistence.Table;
             @Index(name = "idx_name", columnList = "user_id, company_id", unique = true)
         }
 )
-public class Profile {
+public class Profile extends ClientResponse implements java.io.Serializable{
 
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
-    @Column(name = "id")
-    
+    @Column(name = "id")    
     private int id;
 
     @Column(name = "user_id")
@@ -38,10 +39,17 @@ public class Profile {
     
     @Column(name = "designation")
     private String designation;
+    
+    @Transient
+    private User user;
+    
+    @Transient
+    private Company company;
 
     public Profile() 
     {
-        
+        //user = new User();
+        //company = new Company();
     }
 
     public int getId() {
@@ -83,5 +91,20 @@ public class Profile {
     public void setDesignation(String designation) {
         this.designation = designation;
     }
-    
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public Company getCompany() {
+        return company;
+    }
+
+    public void setCompany(Company company) {
+        this.company = company;
+    }    
 }

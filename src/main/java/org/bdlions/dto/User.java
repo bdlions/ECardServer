@@ -1,5 +1,6 @@
 package org.bdlions.dto;
 
+import com.bdlions.dto.response.ClientResponse;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -19,12 +20,11 @@ import javax.persistence.Table;
             @Index(name = "idx_name", columnList = "first_name, last_name", unique = true)
         }
 )
-public class User {
+public class User extends ClientResponse implements java.io.Serializable{
 
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
-    @Column(name = "id")
-    
+    @Column(name = "id")    
     private int id;
 
     @Column(name = "user_name")
@@ -46,7 +46,7 @@ public class User {
     private String img;
     
     @Column(name = "account_status_id")
-    private int account_status_id;
+    private int accountStatusId;
 
     public User() 
     {
@@ -109,12 +109,11 @@ public class User {
         this.img = img;
     }
 
-    public int getAccount_status_id() {
-        return account_status_id;
+    public int getAccountStatusId() {
+        return accountStatusId;
     }
 
-    public void setAccount_status_id(int account_status_id) {
-        this.account_status_id = account_status_id;
-    }
-    
+    public void setAccountStatusId(int accountStatusId) {
+        this.accountStatusId = accountStatusId;
+    }    
 }
