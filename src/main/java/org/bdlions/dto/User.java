@@ -45,6 +45,9 @@ public class User extends ClientResponse implements java.io.Serializable{
     @Column(name = "img")
     private String img;
     
+    @Column(name = "cell")
+    private String cell;
+    
     @Column(name = "account_status_id")
     private int accountStatusId;
 
@@ -115,5 +118,13 @@ public class User extends ClientResponse implements java.io.Serializable{
 
     public void setAccountStatusId(int accountStatusId) {
         this.accountStatusId = accountStatusId;
-    }    
+    }   
+
+    public String getCell() {
+        return cell;
+    }
+
+    public void setCell(String cell) {
+        this.cell = cell;
+    }
 }

@@ -6,8 +6,8 @@ INSERT INTO `role`(`id`, `title`, `description`) values
 (1, 'ADMIN', 'Admin'),
 (2, 'USER', 'User');
 
-INSERT INTO `user`(`id`, `email`, `password`, `first_name`, `last_name`, `account_status_id`) values
-(1, 'user1@gmail.com', 'pass', 'User', '1', 1);
+INSERT INTO `user`(`id`, `email`, `password`, `first_name`, `last_name`, `account_status_id`, `cell`) values
+(1, 'user1@gmail.com', 'pass', 'User', '1', 1, '01711123456');
 
 INSERT INTO `user_role`(`id`, `user_id`, `role_id`) values
 (1, 1, 1);

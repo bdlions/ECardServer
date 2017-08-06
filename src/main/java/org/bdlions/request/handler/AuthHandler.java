@@ -166,7 +166,9 @@ public class AuthHandler {
         gsonBuilder.registerTypeAdapterFactory(HibernateProxyTypeAdapter.FACTORY);
         Gson gson = gsonBuilder.create();
         String profileString = gson.toJson(profileLibrary.getProfileInfo(userId));        
-        Profile profile = gson.fromJson(profileString, Profile.class);        
+        Profile profile = gson.fromJson(profileString, Profile.class); 
+        profile.setMessage("Profile Info.");
+        profile.setSuccess(true);
         return profile;
     }
     
