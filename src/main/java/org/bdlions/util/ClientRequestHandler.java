@@ -6,7 +6,7 @@ import org.bdlions.exceptions.InvalidRequestException;
 import org.bdlions.transport.packet.IPacket;
 import org.bdlions.transport.packet.IPacketHeader;
 import org.bdlions.request.handler.AuthHandler;
-import com.auction.request.handler.RequestExecutorInfo;
+import org.bdlions.request.handler.RequestExecutorInfo;
 import com.bdlions.util.ACTION;
 import com.bdlions.util.REQUEST_TYPE;
 import com.google.gson.Gson;

@@ -27,6 +27,7 @@ public class Main extends SpringBootServletInitializer {
         channelProviderImpl = new ChannelProviderImpl(requestHandler, sessionManager);
         channelProviderImpl.start();
         HibernateUtil.getSession();
+        System.out.println("ECard Server has started....................................");
     }
 
 }
