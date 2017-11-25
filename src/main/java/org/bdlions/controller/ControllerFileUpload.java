@@ -12,6 +12,8 @@ package org.bdlions.controller;
 import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
+import javax.servlet.ServletContext;
+import org.bdlions.util.Constants;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -36,11 +38,11 @@ public class ControllerFileUpload {
             try {
                 byte[] bytes = file.getBytes();
                 name = file.getOriginalFilename();
-
+                
                 // Creating the directory to store file
-                String rootPath = "resources";
+                String rootPath = Constants.SERVER_ROOT_ABSOLUTE_PATH + "resources";
                 File dir = new File(rootPath + File.separator + "images");
-                if (!dir.exists()) {
+                if (!dir.exists()) {                    
                     dir.mkdirs();
                 }
 

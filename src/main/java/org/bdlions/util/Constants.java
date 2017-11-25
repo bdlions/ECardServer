@@ -5,6 +5,9 @@ package org.bdlions.util;
  * @author nazmul hasan
  */
 public class Constants {
+    //public static final String SERVER_ROOT_ABSOLUTE_PATH = "";
+    public static final String SERVER_ROOT_ABSOLUTE_PATH = "/usr/local/apache-tomcat-8.5.9/webapps/ECardServer/";
+    
     public static final int ACCOUNT_STATUS_ID_ACTIVE = 1;
     public static final int ACCOUNT_STATUS_ID_INACTIVE = 2;
     
