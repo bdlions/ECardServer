@@ -188,6 +188,10 @@ public class UserManager {
                 {
                     session.update(user);
                     session.update(profile);
+                    if(profile.getCompany() != null && profile.getCompany().getId() > 0)
+                    {
+                        session.update(profile.getCompany());
+                    }                    
                     transaction.commit();
                     session.close();
                     return true;
