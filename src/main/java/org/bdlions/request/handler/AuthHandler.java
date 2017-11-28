@@ -6,6 +6,7 @@ import org.bdlions.session.ISession;
 import org.bdlions.session.ISessionManager;
 import com.bdlions.util.ACTION;
 import com.bdlions.commons.ClientMessages;
+import com.bdlions.dto.Mail;
 import com.bdlions.dto.response.ClientResponse;
 import com.bdlions.dto.response.SignInResponse;
 import org.bdlions.util.StringUtils;
@@ -16,6 +17,7 @@ import org.bdlions.commons.HibernateProxyTypeAdapter;
 import org.bdlions.dto.Profile;
 import org.bdlions.dto.User;
 import org.bdlions.library.ProfileLibrary;
+import org.bdlions.library.SendMail;
 import org.bdlions.manager.UserManager;
 import org.bdlions.util.Constants;
 
@@ -198,6 +200,18 @@ public class AuthHandler {
             response.setMessage("Invalid params to update user profile. Please try again later.");
             response.setSuccess(false);
         } 
+        return response;
+    }
+    
+    @ClientRequest(action = ACTION.SEND_CARD_VIA_EMAIL)
+    public ClientResponse sendCardViaEmail(ISession session, IPacket packet) throws Exception 
+    {
+        Gson gson = new Gson();
+        Mail mail = gson.fromJson(packet.getPacketBody(), Mail.class);
+        SignInResponse response = new SignInResponse();
+        SendMail sendMail = new SendMail();
+        sendMail.sendContactCardViaMail(mail.getTo(), mail.getImg());
+        response.setSuccess(true);
         return response;
     }
 }

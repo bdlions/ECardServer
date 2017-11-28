@@ -14,21 +14,20 @@ import org.slf4j.LoggerFactory;
  */
 public class SendMail {
     private final Logger logger = LoggerFactory.getLogger(SendMail.class);
-    public boolean sendSignUpMail(String mailTo)
+    public boolean sendContactCardViaMail(String mailTo, String img)
     {
         boolean status = false;
         // outgoing message information
         //mailTo = "nazhasan15@yopmail.com";
-        String subject = "Room Auction Email Verification";
+        String subject = "Contact Card";
 
         //generate a random code and store that into the database, deactivate account
-        Map<String, String> input = new HashMap<>();
-        input.put("v_link", "http://roomauction.co.uk/Verifycode?vCode=" + UUID.randomUUID().toString());
-        input.put("c_link", "http://roomauction.co.uk/Verifycode?cCode=" + UUID.randomUUID().toString());
-        input.put("email", mailTo);
+        //Map<String, String> input = new HashMap<>();
+        //input.put("v_link", "http://roomauction.co.uk/Verifycode?vCode=" + img);
 
         //HTML mail content
-        String htmlText = MailUtil.readEmailFromHtml("mail-templates/mail-verification.html", input);
+        //String htmlText = MailUtil.readEmailFromHtml("mail-templates/mail-verification.html", input);
+        String htmlText = "<img src='http://signtechbd.com:8080/ECardServer/resources/images/"+img+"'/>";
 
         MailSender mailer = new MailSender();
 
