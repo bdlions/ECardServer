@@ -17,7 +17,7 @@ import javax.persistence.Table;
 @Table(
         name = "user",
         indexes = {
-            @Index(name = "idx_name", columnList = "first_name, last_name", unique = true)
+            @Index(name = "idx_email", columnList = "email", unique = true)
         }
 )
 public class User extends ClientResponse implements java.io.Serializable{
